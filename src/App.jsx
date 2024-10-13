@@ -2,6 +2,9 @@ import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Layout";
 import HomePage from "./pages/Home";
+import PokemonDetailsPage, {
+  getPokemonDetailsLoader,
+} from "./pages/PokemonDetails";
 import "./App.css";
 
 const router = createBrowserRouter([
@@ -12,6 +15,11 @@ const router = createBrowserRouter([
       {
         path: "",
         element: <HomePage />,
+      },
+      {
+        loader: getPokemonDetailsLoader,
+        path: "/pokemon/:id",
+        element: <PokemonDetailsPage />,
       },
     ],
   },
